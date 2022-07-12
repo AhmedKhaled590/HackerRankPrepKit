@@ -9,9 +9,9 @@
   ### 2. ~~[x] [Day 2](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/plusMinus.js)~~
   ### 3. ~~[x] [Day 3](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/timeConversion.js)~~
   ### 4. ~~[x] [Day 4](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/breakingTheRecords.js)~~
-  ### 5. [] [Day 5]()
-  ### 6. [] [Day 6]()
-  ### 7. [] [Day 7]()
+  ### 5. ~~[x] [Day 5](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/camelCase4.js)~~
+  ### 6. ~~[x] [Day 6](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/divisibleSumPairs.js)~~
+  ### 7. ~~[x] [Day 7](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/sparseArray.js)~~
 </details>
 
 ## Week 2
