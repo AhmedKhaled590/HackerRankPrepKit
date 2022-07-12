@@ -7,8 +7,8 @@
   
   ### 1. ~~[x] [Day 1](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/mini-maxSum.js)~~
   ### 2. ~~[x] [Day 2](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/plusMinus.js)~~
-  ### 3. [] [Day 3](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/timeConversion.js)
-  ### 4. [] [Day 4](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/breakingTheRecords.js)
+  ### 3. ~~[x] [Day 3](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/timeConversion.js)
+  ### 4. ~~[x] [Day 4](https://github.com/AhmedKhaled590/HackerRankPrepKit/blob/master/week1/breakingTheRecords.js)
   ### 5. [] [Day 5]()
   ### 6. [] [Day 6]()
   ### 7. [] [Day 7]()
