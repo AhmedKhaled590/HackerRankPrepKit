@@ -1,22 +1,23 @@
 function processData(data) {
   let inputs = data.split("\r\n");
   inputs.forEach((input) => {
-        let operation = input[0];
+    let operation = input[0];
     let type = input[2];
     let lastIndex = type === "M" ? input.length - 2 : input.length;
+
     if (operation === "S") {
       let capitalPositions = [0];
       let ans = [];
-
       input = input.slice(4, lastIndex);
-
       for (let i = 0; i < input.length; i++) {
         element = input[i];
         if (element >= "A" && element < "Z") {
           capitalPositions.push(i);
         }
       }
+
       capitalPositions.push(input.length);
+
       for (let j = 0; j < capitalPositions.length - 1; j++) {
         ans.push(
           input
