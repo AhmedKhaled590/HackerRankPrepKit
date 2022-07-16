@@ -32,7 +32,7 @@ function readLine() {
 function migratoryBirds(arr) {
   let map = new Array(5).fill(0);
   for (let i = 0; i < arr.length; i++) {
-    map[arr[i] - 1]++;
+    map[arr[i] - 1]++;  
   }
   let max = -Infinity;
   let maxIndex = 0;
