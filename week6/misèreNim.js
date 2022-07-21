@@ -23,20 +23,22 @@ function readLine() {
 }
 
 /*
- * Complete the 'sansaXor' function below.
+ * Complete the 'misereNim' function below.
  *
- * The function is expected to return an INTEGER.
- * The function accepts INTEGER_ARRAY arr as parameter.
+ * The function is expected to return a STRING.
+ * The function accepts INTEGER_ARRAY s as parameter.
  */
 
-function sansaXor(arr) {
+function misereNim(s) {
   // Write your code here
-  if (arr.length % 2 === 0) return 0;
-  let result = 0;
-  for (let i = 0; i < arr.length; i += 2) {
-    result ^= arr[i];
+  if (Math.max(...s) === 1) {
+    return s.length % 2 === 0 ? "First" : "Second";
   }
-  return result;
+  let nimSum = s.reduce((acc, cur) => acc ^ cur);
+  if (nimSum === 0) {
+    return "Second";
+  }
+  return "First";
 }
 
 function main() {
@@ -47,12 +49,12 @@ function main() {
   for (let tItr = 0; tItr < t; tItr++) {
     const n = parseInt(readLine().trim(), 10);
 
-    const arr = readLine()
+    const s = readLine()
       .replace(/\s+$/g, "")
       .split(" ")
-      .map((arrTemp) => parseInt(arrTemp, 10));
+      .map((sTemp) => parseInt(sTemp, 10));
 
-    const result = sansaXor(arr);
+    const result = misereNim(s);
 
     ws.write(result + "\n");
   }

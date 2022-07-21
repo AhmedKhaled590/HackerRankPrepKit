@@ -23,36 +23,46 @@ function readLine() {
 }
 
 /*
- * Complete the 'sansaXor' function below.
+ * Complete the 'gamingArray' function below.
  *
- * The function is expected to return an INTEGER.
+ * The function is expected to return a STRING.
  * The function accepts INTEGER_ARRAY arr as parameter.
  */
 
-function sansaXor(arr) {
+function gamingArray(arr) {
   // Write your code here
-  if (arr.length % 2 === 0) return 0;
-  let result = 0;
-  for (let i = 0; i < arr.length; i += 2) {
-    result ^= arr[i];
+  let map = new Map();
+  for (let i = 0; i < arr.length; i++) {
+    map.set(arr[i], i);
   }
-  return result;
+  arr = arr.sort((a, b) => b - a);
+  let remain = arr.length;
+  let i = 0;
+  let j = 0;
+  while (remain > 0 && j < arr.length) {
+    if (map.get(arr[j]) <= remain) {
+      remain = map.get(arr[j]);
+      i ^= 1;
+    }
+    j++;
+  }
+  return i !== 0 ? "BOB" : "ANDY";
 }
 
 function main() {
   const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
 
-  const t = parseInt(readLine().trim(), 10);
+  const g = parseInt(readLine().trim(), 10);
 
-  for (let tItr = 0; tItr < t; tItr++) {
-    const n = parseInt(readLine().trim(), 10);
+  for (let gItr = 0; gItr < g; gItr++) {
+    const arrCount = parseInt(readLine().trim(), 10);
 
     const arr = readLine()
       .replace(/\s+$/g, "")
       .split(" ")
       .map((arrTemp) => parseInt(arrTemp, 10));
 
-    const result = sansaXor(arr);
+    const result = gamingArray(arr);
 
     ws.write(result + "\n");
   }
