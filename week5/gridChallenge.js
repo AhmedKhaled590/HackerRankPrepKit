@@ -31,6 +31,7 @@ function readLine() {
 
 function gridChallenge(grid) {
   grid = grid.map((row) => row.split("").sort().join(""));
+  
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length - 1; j++) {
       if (grid[j][i] > grid[j + 1][i]) {

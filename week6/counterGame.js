@@ -23,20 +23,32 @@ function readLine() {
 }
 
 /*
- * Complete the 'sansaXor' function below.
+ * Complete the 'counterGame' function below.
  *
- * The function is expected to return an INTEGER.
- * The function accepts INTEGER_ARRAY arr as parameter.
+ * The function is expected to return a STRING.
+ * The function accepts LONG_INTEGER n as parameter.
  */
 
-function sansaXor(arr) {
+function counterGame(n) {
   // Write your code here
-  if (arr.length % 2 === 0) return 0;
-  let result = 0;
-  for (let i = 0; i < arr.length; i += 2) {
-    result ^= arr[i];
+  let power = Math.log2(n);
+  let i = 0;
+  if (Math.floor(power) - power === 0) {
+    return power % 2 === 0 ? "Richard" : "Louise";
+  } else {
+    while (Math.floor(power) - power !== 0) {
+      n = n - Math.pow(2, Math.floor(power));
+      power = Math.log2(n);
+      i ^= 1;
+    }
+    return power % 2 === 0
+      ? i === 0
+        ? "Richard"
+        : "Louise"
+      : i === 0
+      ? "Louise"
+      : "Richard";
   }
-  return result;
 }
 
 function main() {
@@ -47,12 +59,7 @@ function main() {
   for (let tItr = 0; tItr < t; tItr++) {
     const n = parseInt(readLine().trim(), 10);
 
-    const arr = readLine()
-      .replace(/\s+$/g, "")
-      .split(" ")
-      .map((arrTemp) => parseInt(arrTemp, 10));
-
-    const result = sansaXor(arr);
+    const result = counterGame(n);
 
     ws.write(result + "\n");
   }
