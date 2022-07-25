@@ -95,6 +95,76 @@ void free_doubly_linked_list(DoublyLinkedListNode *node)
 
 DoublyLinkedListNode *sortedInsert(DoublyLinkedListNode *llist, int data)
 {
+    DoublyLinkedListNode *newNode = new DoublyLinkedListNode(data);
+    bool added = false;
+    if (data < llist->data)
+    {
+        newNode->next = llist;
+        return newNode;
+    }
+    DoublyLinkedListNode *prev = llist;
+    DoublyLinkedListNode *curr = llist->next;
+    while (curr)
+    {
+        if (data < curr->data)
+        {
+            newNode->next = curr;
+            newNode->prev = curr->prev;
+            prev->next = newNode;
+            added = true;
+            break;
+        }
+        else
+        {
+            prev = curr;
+            curr = curr->next;
+        }
+    }
+    if (!added)
+    {
+        prev->next = newNode;
+    }
+    return llist;
 }
 
 int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    int t;
+    cin >> t;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (int t_itr = 0; t_itr < t; t_itr++)
+    {
+        DoublyLinkedList *llist = new DoublyLinkedList();
+
+        int llist_count;
+        cin >> llist_count;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        for (int i = 0; i < llist_count; i++)
+        {
+            int llist_item;
+            cin >> llist_item;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            llist->insert_node(llist_item);
+        }
+
+        int data;
+        cin >> data;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        DoublyLinkedListNode *llist1 = sortedInsert(llist->head, data);
+
+        print_doubly_linked_list(llist1, " ", fout);
+        fout << "\n";
+
+        free_doubly_linked_list(llist1);
+    }
+
+    fout.close();
+
+    return 0;
+}
