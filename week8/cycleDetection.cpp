@@ -88,9 +88,7 @@ bool has_cycle(SinglyLinkedListNode *h)
     {
         if (s.find(h) != s.end())
             return true;
-
         s.insert(h);
-
         h = h->next;
     }
 
