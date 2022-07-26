@@ -31,15 +31,13 @@ function readLine() {
 
 function superReducedString(s) {
   // Write your code here
-  let res = "";
-  for (let i = 0; i < s.length; i++) {
+  for (let i = 0; i < s.length - 1; i++) {
     if (s[i] === s[i + 1]) {
-      i++;
-      continue;
+      s = s.slice(0, i) + s.slice(i + 2);
+      i = -1;
     }
-    res += s[i];
   }
-  return res.length === 0 ? "Empty String" : res;
+  return s.length === 0 ? "Empty String" : s;
 }
 function main() {
   const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
