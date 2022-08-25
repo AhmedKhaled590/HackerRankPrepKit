@@ -1,5 +1,3 @@
-"use strict";
-
 /*
  * Complete the 'waiter' function below.
  *
@@ -25,36 +23,43 @@ function waiter(number, q) {
   let A = [];
   let B = [];
   // generate primes effectivly
-  for (let i = 2; i < Math.max(number.length, q); i++) {
+  for (let i = 2; primes.length < Math.max(number.length, q); i++) {
     if (isPrimeEnhanced(i)) {
       primes.push(i);
     }
   }
 
   for (let i = 0; i < q; i++) {
-    for (let j = 0; j < number.length; j++) {
-      if (number[j] % primes[i] === 0) {
-        answers.push(number[j]);
+    A = [];
+
+    while (number.length > 0) {
+      let num = number.pop();
+      if (num % primes[i] === 0) {
+        B.push(num);
       } else {
-        A.push(number[j]);
+        A.push(num);
       }
     }
+    while (B.length > 0) {
+      answers.push(B.pop());
+    }
     number = A;
-    B.push(...answers);
-    A = [];
-    answers = [];
   }
-  number.reverse();
-  return [...B, ...number];
+
+  while (A.length > 0) {
+    answers.push(A.pop());
+  }
+
+  return answers;
 }
-// console.log(
-//   waiter(
-//     [
-//       80, 37, 86, 79, 8, 39, 43, 41, 15, 33, 30, 15, 45, 55, 61, 74, 49, 49, 20,
-//       66, 77, 19, 85, 44, 81, 82, 27, 5, 36, 83, 91, 45, 39, 44, 19, 44, 71, 49,
-//       8, 66, 81, 40, 29, 60, 35, 31, 44,
-//     ],
-//     21
-//   )
-// );
-console.log(waiter([3, 4, 7, 6, 5], 1));
+
+console.log(
+  waiter(
+    [
+      80, 37, 86, 79, 8, 39, 43, 41, 15, 33, 30, 15, 45, 55, 61, 74, 49, 49, 20,
+      66, 77, 19, 85, 44, 81, 82, 27, 5, 36, 83, 91, 45, 39, 44, 19, 44, 71, 49,
+      8, 66, 81, 40, 29, 60, 35, 31, 44,
+    ],
+    21
+  )
+);
